@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f4a985dd12ec4e409d0dc6885fc0708, type: 3}
+  m_Name: New Terrain Type 1
+  m_EditorClassIdentifier: 
+  terrainTypes:
+  - typeNumber: 0
+    typeColor: {r: 0.2732734, g: 0.8396226, b: 0.81784, a: 0}
+    typeHeight: 0.1
+  - typeNumber: 1
+    typeColor: {r: 0.65365934, g: 0.7264151, b: 0.5585173, a: 0}
+    typeHeight: 0.3
+  - typeNumber: 2
+    typeColor: {r: 0.4716981, g: 0.45452303, b: 0.11347453, a: 0}
+    typeHeight: 0.5
+  - typeNumber: 3
+    typeColor: {r: 0.8301887, g: 0.5471162, b: 0.27020293, a: 0}
+    typeHeight: 0.7
+  - typeNumber: 4
+    typeColor: {r: 0.38456747, g: 0.5471698, b: 0.53700715, a: 0}
+    typeHeight: 1

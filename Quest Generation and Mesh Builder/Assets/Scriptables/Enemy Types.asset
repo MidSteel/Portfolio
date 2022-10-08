@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1521917a49e12c141a19ca8e38387c7a, type: 3}
+  m_Name: Enemy Types
+  m_EditorClassIdentifier: 
+  _enemyTypeList:
+  - entityId: 1
+    entityType: Wolf
+    typeObject: {fileID: 8977161546525734524, guid: dcecd4553e43fcd49bc5e2d25e4bd1eb, type: 3}
+  - entityId: 2
+    entityType: Orc
+    typeObject: {fileID: 6493983026592950497, guid: aa6c5c7ea31edcb4daf7897e9334c6af, type: 3}
+  - entityId: 3
+    entityType: Fox
+    typeObject: {fileID: 6493983026592950497, guid: aa6c5c7ea31edcb4daf7897e9334c6af, type: 3}
+  - entityId: 4
+    entityType: Giant Cat
+    typeObject: {fileID: 6493983026592950497, guid: aa6c5c7ea31edcb4daf7897e9334c6af, type: 3}
+  - entityId: 5
+    entityType: Giant Dog
+    typeObject: {fileID: 6493983026592950497, guid: aa6c5c7ea31edcb4daf7897e9334c6af, type: 3}
+  - entityId: 5
+    entityType: Giant Quake
+    typeObject: {fileID: 6493983026592950497, guid: aa6c5c7ea31edcb4daf7897e9334c6af, type: 3}
