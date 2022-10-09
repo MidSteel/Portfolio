@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+//This class is for test purpose.
 public class Test : MonoBehaviour
 {
     public const float nextKeyValue = 1.05946309436f;
@@ -14,7 +15,6 @@ public class Test : MonoBehaviour
     [SerializeField] private float totalIterations = 100;
     //[SerializeField] private List<float> notes = new List<float>();
     [SerializeField] private List<Vector2> notes = new  List<Vector2>();
-    private MusicNotesGenerator _noteGenerator = null;
     private int _noteIndex = 0;
     private float _noteChangeTimer = 0f;
     private float _noteChangeTime = 0f;
@@ -30,7 +30,6 @@ public class Test : MonoBehaviour
     private void Awake()
     {
         _synth = FindObjectOfType<Synthesizer>();
-        _noteGenerator = this.GetComponent<MusicNotesGenerator>();
         testFreq = new float[10];
         float startIndex = _testStartFreq;
 

@@ -6,18 +6,19 @@ using UnityEngine;
 using Random = System.Random;
 using System.Threading;
 
-//[RequireComponent(typeof(AudioLowPassFilter), typeof(AudioHighPassFilter))]
+public enum WaveForm { Sin, Square, Triangle, Saw, Noise } //Wave forms for synthesizer.
+
 public class Synthesizer : MonoBehaviour
 {
     public float test;
 
     [SerializeField] private WaveForm _wave;
-    [SerializeField] private float _frequency = 440f;
-    [SerializeField][Range(0f, 1f)] private float _volume = 0.5f;
+    [SerializeField] private float _frequency = 440f; 
+    [SerializeField][Range(0f, 1f)] private float _volume = 0.5f; // Volume of the audio.
     [Header("=========Instrument=========")]
-    [SerializeField] private Instrument _instrument;
+    [SerializeField] private Instrument _instrument; // Intsrument Settings.
     
-    private float[] _baseFrequencies = null;
+    private float[] _baseFrequencies = null; //Key frequencies.
 
     private const float _sampleRate = 48000f;
 
@@ -35,19 +36,19 @@ public class Synthesizer : MonoBehaviour
 
     private void Awake()
     {
-        float keyDistance = Mathf.Pow(2f, (1f / 12f));
+        float keyDistance = Mathf.Pow(2f, (1f / 12f)); //The difference between two keys is 12th root of two.
         float firstKey = 440f * Mathf.Pow(2f, (1f - 49f) / 12f);
         _baseFrequencies = new float[12];
         _baseFrequencies[0] = firstKey;
         
         for (int i = 1; i < 12; i++)
         {
-            _baseFrequencies[i] = _baseFrequencies[i - 1] * keyDistance;
+            _baseFrequencies[i] = _baseFrequencies[i - 1] * keyDistance; //Calculating frequencies for a scale.
         }
 
         foreach (Osc oscilator in _instrument.Oscilators)
         {
-            oscilator.OnStart(_baseFrequencies);
+            oscilator.OnStart(_baseFrequencies); //Initialize Oscilators.
         }
     }
 
@@ -79,9 +80,7 @@ public class Synthesizer : MonoBehaviour
                         WaveAmps w = _instrument.Oscilators[osc].waveAmps[wave];
                         
                         float amplitude = _instrument.Oscilators[osc].envelope.GetAmplitude(time, note.onTime, note.offTime, note.NoteOn);
-                        data[i] += Oscilator(_phase, w.wave, _instrument.Oscilators[osc].GetFrequency(note.id) * w.frequencyMultiplier, amplitude * w.waveAmplitude, w.LFOFrequency, w.LFOAmplitude);
-                        
-                        //if (i + 10 < data.Length - 1) { data[i + 10] += (data[i] * test); }
+                        data[i] += Oscilator(_phase, w.wave, _instrument.Oscilators[osc].GetFrequency(note.id) * w.frequencyMultiplier, amplitude * w.waveAmplitude, w.LFOFrequency, w.LFOAmplitude); //Calculating Oscilations for every oscilator.
                     }
                 }
             }
@@ -156,14 +155,18 @@ public class Synthesizer : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// returns audio information.
+    /// </summary>
+    /// <returns></returns>
     public float Oscilator(float phase, WaveForm wave, float frequency, float amplitude, float LFOFrequency = 0f, float LFOAmplitude = 0f)
     {
         float sound = 0f;
-        float freq = (phase * frequency) + LFOAmplitude * frequency * Mathf.Sin(LFOFrequency * phase);
+        float freq = (phase * frequency) + LFOAmplitude * frequency * Mathf.Sin(LFOFrequency * phase); 
 
         switch (wave) {
             case WaveForm.Sin:
-                sound = Mathf.Sin (freq);
+                sound = Mathf.Sin (freq); 
                 break;
             case WaveForm.Square:
                 sound = Mathf.Sign(Mathf.Sin(freq));

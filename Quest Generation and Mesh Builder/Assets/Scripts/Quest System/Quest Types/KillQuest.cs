@@ -31,7 +31,6 @@ public class KillQuest : QuestType
         if (questId != _questId) { return; }
         if (_isQuestComplete) { return; }
         if (id != _targetId) { return; }
-        //if (id != _targetId || !_isQuestComplete) { return; }
         _amountOfTargetsKilled++;
         if (_amountOfTargetsKilled >= _amountToKill) { onQuestComplete?.Invoke(_questId); QuestManager.instance.EnableQuestCompleteText(); _isQuestComplete = true; }
     }

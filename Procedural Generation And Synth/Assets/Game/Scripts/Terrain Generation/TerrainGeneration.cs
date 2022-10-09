@@ -60,8 +60,6 @@ namespace TerrainGeneration
                 for ( int x = 0; x < width; x++)
                 {
                     float terrainHeight = heights[x, y];
-                    //int textureMapLength = textureMapValues.Length;
-
                     int biomeDataLength = _terrainBiomeData[0].BiomeData.Length;
 
                     for (int i = 0; i < biomeDataLength; i++)
@@ -69,7 +67,6 @@ namespace TerrainGeneration
                         float prevHeight = 0f;
                         if (i > 0) { prevHeight = _terrainBiomeData[0].BiomeData[i - 1].height; }
 
-                        //if (i == 0) { textureMapValues[i] = 1f; }
                         if (terrainHeight <= _terrainBiomeData[0].BiomeData[i].height && terrainHeight >= prevHeight)
                         {
                             textureMapValues[i] = 1f;

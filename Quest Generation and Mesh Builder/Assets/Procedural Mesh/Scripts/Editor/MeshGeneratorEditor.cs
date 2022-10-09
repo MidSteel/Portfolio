@@ -14,35 +14,11 @@ public class MeshGeneratorEditor : Editor
     public void OnSceneGUI()
     {
         _target = (MeshGenerator)target;
-
-        //foreach (Transform vertTransform in _target.Points)
-        //{
-        //    Vector3 pos = vertTransform.localPosition;
-        //    Quaternion rot = vertTransform.rotation;
-        //    float scale = 0.1f;
-        //    EditorGUI.BeginChangeCheck();
-
-        //    Handles.DrawWireCube(vertTransform.position, Vector3.one);
-        //    Handles.TransformHandle(ref pos, ref rot, ref scale);
-        //    //Handles.DoPositionHandle(pos, rot);
-        //    vertTransform.localPosition = pos;
-        //    vertTransform.rotation = rot;
-
-        //    //Handles.CapFunction func = new Handles.CapFunction((a,b,c,d,w) => { _target.AddAPoint(); });
-
-        //    //Handles.Button(_target.transform.position, Quaternion.identity, 1f, 1f, func);
-        //    if (EditorGUI.EndChangeCheck())
-        //    {
-        //        _target.MeshGeneration();
-        //    }
-        //}
-
-
         Event guiEvent = Event.current;
         Ray mouseRay = HandleUtility.GUIPointToWorldRay(guiEvent.mousePosition);
         float drawPlaneHeight = 0;
-        float dstToDrawPlane = /*(drawPlaneHeight - mouseRay.origin.y) / mouseRay.direction.y*/  5f;
-        Vector3 mousePosition = /*_target.transform.InverseTransformPoint*/(mouseRay.GetPoint(dstToDrawPlane));
+        float dstToDrawPlane = 5f;
+        Vector3 mousePosition = (mouseRay.GetPoint(dstToDrawPlane));
 
         _hoveringOverPointIndex = CheckIfMouseIsHoveringOverPoints(mousePosition);
 
@@ -62,7 +38,6 @@ public class MeshGeneratorEditor : Editor
             {
                 if (_attachToAnExistingPoint)
                 {
-                    //_target.VertPoints.Add(_target.VertPoints[_hoveringOverPointIndex]);
                     _target.TriangleIndex.Add(_hoveringOverPointIndex);
                     if (_target.TriangleIndex.Count % 3 == 0) { _target.MeshGeneration(); }
                 }
@@ -70,8 +45,6 @@ public class MeshGeneratorEditor : Editor
                 {
                     _dragPoint = !_dragPoint;
                 }
-                //if (!_dragPoint) { _dragPoint = true; }
-                //else { _dragPoint = false; }
             }
         }
 
@@ -92,28 +65,6 @@ public class MeshGeneratorEditor : Editor
             StartDraggingPoint(mousePosition);
             _target.MeshGeneration();
         }
-        
-        //foreach (Vector3 vertTransform in _target.VertPoints)
-        //{
-        //    Vector3 pos = vertTransform;
-        //    //Quaternion rot = vertTransform.rotation;
-        //    float scale = 0.1f;
-        //    EditorGUI.BeginChangeCheck();
-
-        //    Handles.DrawWireCube(vertTransform, Vector3.one);
-        //    //Handles.TransformHandle(ref pos, ref rot, ref scale);
-        //    //Handles.DoPositionHandle(pos, rot);
-        //    //vertTransform.localPosition = pos;
-        //    //vertTransform.rotation = rot;
-
-        //    //Handles.CapFunction func = new Handles.CapFunction((a,b,c,d,w) => { _target.AddAPoint(); });
-
-        //    //Handles.Button(_target.transform.position, Quaternion.identity, 1f, 1f, func);
-        //    if (EditorGUI.EndChangeCheck())
-        //    {
-        //        _target.MeshGeneration();
-        //    }
-        //}
     }
 
     public void StartDraggingPoint(Vector3 mousePosition)

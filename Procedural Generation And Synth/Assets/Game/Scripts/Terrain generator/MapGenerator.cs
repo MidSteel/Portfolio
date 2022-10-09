@@ -45,30 +45,6 @@ public class MapGenerator : MonoBehaviour
                 else
                 {
                     Color color = Color.clear;
-                    //foreach (TerrainType tType in _biome._biomes)
-                    //{
-                    //    //foreach (TerrainTypeData typeData in tType.terrainTypes)
-                    //    //{
-                    //    //    if (typeData.typeHeight >= noiseMap[x, y]) { colorMap[y * _MapChunkSize + x] = typeData.typeColor; break; }
-                    //    //}
-
-                    //    //for (int i = 0; i < tType.terrainTypes.Length; i++)
-                    //    //{
-                    //    //    if (tType.terrainTypes[i].typeHeight >= noiseMap[x, y]) { if (color == Color.clear) { color = tType.terrainTypes[i].typeColor; break; } else { color = Color.Lerp(color, tType.terrainTypes[i].typeColor, noiseMap[x, y]); break; } }
-                    //    //}
-
-                    //    if (x <= halfChunkSize)
-                    //    {
-                    //        for (int i = 0; i < tType.terrainTypes.Length; i++)
-                    //        {
-                    //            if (tType.terrainTypes[i].typeHeight >= noiseMap[x, y]) { colorMap[_MapChunkSize * y + x] = }
-                    //        }
-                    //    }
-
-                    //    colorMap[ y * _MapChunkSize + x] = color;
-                    //}
-
-                    //Debug.Log("BIOMEs : " + _biome._biomes.Length, this);
                     TerrainType tTYpe = _biome._biomes[0];
                     if (x <= (_MapChunkSize * Mathf.Sin(noiseMap[x, y])))
                     {
@@ -82,14 +58,6 @@ public class MapGenerator : MonoBehaviour
 
                     colorMap[y * _MapChunkSize + x] = color;
                 }
-                
-                //foreach (TerrainType tType in _biome._biomes)
-                //{
-                //    foreach (TerrainTypeData typeData in tType.terrainTypes)
-                //    {
-                //        if (typeData.typeHeight >= noiseMap[x, y]) { colorMap[y * _MapChunkSize + x] = typeData.typeColor; break; }
-                //    }
-                //}
             }
         }
 

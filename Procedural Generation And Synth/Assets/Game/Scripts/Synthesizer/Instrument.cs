@@ -6,7 +6,7 @@ using UnityEngine;
 public class Instrument : ScriptableObject
 {
     [SerializeField] private string _instrumentName;
-    [SerializeField] private Osc[] _oscilatorSettings;
+    [SerializeField] private Osc[] _oscilatorSettings;          //Settigns for Oscilators.
     [SerializeField] [Range(0f, 1f)] private float _lowPass;
     [SerializeField] [Range(0f, 1f)]private float _highPass;
 

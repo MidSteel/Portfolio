@@ -18,7 +18,7 @@ public class MapDisplay : MonoBehaviour
     public void DrawMesh(MeshData meshData, Texture2D texture)
     {
         _meshFilter.sharedMesh = meshData.CreateMesh();
-        _meshFilter.sharedMesh.name = "Sup Bitch";
+        _meshFilter.sharedMesh.name = "shader";
         _meshRenderer.sharedMaterial.mainTexture = texture;
         _terrainCollider.sharedMesh = _meshFilter.sharedMesh;
     }

@@ -37,10 +37,6 @@ public class InstrumentSample : MonoBehaviour
                 currentKey = Event.current.keyCode; Debug.Log(currentKey);
             }
         }
-        //else if (Event.current.type == EventType.KeyUp)
-        //{
-        //    currentKey = KeyCode.None;
-        //}
     }
 
     public void Update()
@@ -50,14 +46,9 @@ public class InstrumentSample : MonoBehaviour
             int currentNumber = input.GetKeyInputNumber(currentKey);
             if (currentNumber > -1 && !audioSource.isPlaying)
             {
-                //audioSource.Stop();
                 audioSource.clip = Ins.GetNote(currentNumber);
                 if (!audioSource.isPlaying) { audioSource.Play(); }
             }
-            //else
-            //{
-            //    audioSource.Stop();
-            //}
         }
     }
 }
@@ -92,21 +83,6 @@ public class SampleInfo
         }
 
         if (sampleOctave > 1) { _startingFreq /= (sampleOctave - 1); }
-
-        //using (FileStream fileStream = new FileStream(Application.dataPath + "/Instrument Samples/instrumentName.wav", FileMode.OpenOrCreate))
-        //{
-        //    AudioClip newClip = AudioClip.Create(instrumentName, sampleAudio.samples, sampleAudio.channels, (int)_startingFreq, false);
-        //    float[] data = new float[sampleAudio.samples];
-        //    //byte[] byteData = new byte[sizeof(float) * data.Length];
-        //    List<byte> byteData = new List<byte>();
-
-        //    for (int i = 0; i < data.Length; i++)
-        //    {
-        //        byteData.AddRange(System.BitConverter.GetBytes(data[i]));
-        //    }
-
-        //    fileStream.Write(byteData.ToArray(), 0, byteData.Count);
-        //}
         _baseNoteClip = AudioClip.Create(instrumentName, sampleAudio.samples, sampleAudio.channels, (int)_startingFreq, false);
         _baseNoteClip.SetData(audioData, 0);
     }

@@ -26,19 +26,8 @@ public class MeshGenerator : MonoBehaviour
         positions[1] = new Vector3(10f, 0f, 0f);
         positions[2] = new Vector3(5f, 0f, -10f);
 
-        //for (int i = 0; i < 3; i++)
-        //{
-        //    GameObject transform = new GameObject();
-        //    transform.transform.position = positions[i];
-        //    transform.transform.SetParent(_parentObject);
-        //    _points.Add(transform.transform);
-        //}
-
         for (int i = 0; i < 3; i++)
         {
-            //GameObject transform = new GameObject();
-            //transform.transform.position = positions[i];
-            //transform.transform.SetParent(_parentObject);
             _vertPoints.Add(positions[i]);  
         }
     }
@@ -61,58 +50,13 @@ public class MeshGenerator : MonoBehaviour
 
     private void CreateMeshData()
     {
-        //_vertecies = new Vector3[] { new Vector3(0, 0, 0), new Vector3(1, 0, 0), new Vector3(0, 1, 0), new Vector3(1, 1, 0) };
-        //_triangleIndex = new int[] { 0, 1, 2 };
-
-        //_vertecies.Clear();
-        //_triangleIndex.Clear();
-
-        //for (int i = 0; i < _points.Count; i++)
-        //{
-        //    _vertecies.Add(_points[i].transform.position);
-        //    _triangleIndex.Add(i);
-        //}
-
         _vertecies.Clear();
         _meshTriangles.Clear();
-        //_triangleIndex.Clear();
-
-        //for (int i = 0; i < _vertPoints.Count; i+=3)
-        //{
-        //    if (i + 1 > _vertPoints.Count - 1 || i + 2 > _vertPoints.Count - 1) { return; }
-
-        //    _vertecies.Add(transform.InverseTransformPoint(_vertPoints[i]));
-        //    _vertecies.Add(transform.InverseTransformPoint(_vertPoints[i + 1]));
-        //    _vertecies.Add(transform.InverseTransformPoint(_vertPoints[i + 2]));
-        //    //_vertecies.Add(_vertPoints[i + 1]);
-        //    //_vertecies.Add(_vertPoints[i + 2]);
-
-        //    _triangleIndex.Add(i);
-        //    _triangleIndex.Add(i + 1);
-        //    _triangleIndex.Add(i + 2);
-        //}
 
         for (int i = 0; i < _triangleIndex.Count; i++)
         {
-            //if (i + 1 > _vertPoints.Count - 1 || i + 2 > _vertPoints.Count - 1) { return; }
             _vertecies.Add(transform.InverseTransformPoint( _vertPoints[_triangleIndex[i]]));
             _meshTriangles.Add(i);
-            //_triangleIndex.Add(i);
-
-            //if (!_vertecies.Contains(_vertPoints[i]))
-            //{
-                
-            //}
-            //else
-            //{
-            //    _triangleIndex.Add(_vertecies.IndexOf(_vertPoints[i]));
-            //}
-            //_vertecies.Add(transform.InverseTransformPoint(_vertPoints[i + 1]));
-            //_vertecies.Add(transform.InverseTransformPoint(_vertPoints[i + 2]));
-
-            
-            //_triangleIndex.Add(i + 1);
-            //_triangleIndex.Add(i + 2);
         }
     }
 
@@ -134,9 +78,4 @@ public class MeshGenerator : MonoBehaviour
         mesh.vertices = _vertecies.ToArray();
         mesh.triangles = _meshTriangles.ToArray();
     }
-
-    //public void OnValidate()
-    //{
-    //    MeshGeneration();
-    //}
 }

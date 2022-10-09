@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public enum ControlsEnums {Idle, Up, Down, Left, Right, Mouse, OptionsMenu }
 
+//Very Basic Controller to move around.
 public class Controls : MonoBehaviour
 {
     [SerializeField] private InputActionAsset _action;
@@ -34,12 +35,6 @@ public class Controls : MonoBehaviour
         MouseAction = _action.FindAction("Mouse");
         GameManager manager = GameManager.instance;
         Camera cam = Camera.main;
-        //manager.onUpdate += () => 
-        //{
-        //    _mouseDir = MouseAction.ReadValue<Vector2>(); 
-        //    MouseAction.ReadValue<Vector2>();
-        //    transform.rotation = Quaternion.Euler( _mouseDir); 
-        //};
     }
 
     public void PerformAction(ControlsEnums control)

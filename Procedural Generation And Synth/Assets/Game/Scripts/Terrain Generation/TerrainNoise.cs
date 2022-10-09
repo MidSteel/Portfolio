@@ -43,7 +43,7 @@ namespace TerrainGeneration
                         frequency *= lacunarity;
                     }
                     if (noiseHeight > maxNoiseHeight) { maxNoiseHeight = noiseHeight; } else if (noiseHeight < minNoiseHeight) { minNoiseHeight = noiseHeight; }
-                    noiseMap[x, y] = noiseHeight /***/ /*heightCurve.Evaluate(noiseHeight)*/;
+                    noiseMap[x, y] = noiseHeight;
                 }
             }
 

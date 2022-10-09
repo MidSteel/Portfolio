@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{AC7FE60A-8433-0635-B1FC-FF3CEE16D926}</ProjectGuid>
+    <ProjectGuid>{3A330EFF-139E-9FE0-9FBC-6DAC4407ED41}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -60,7 +60,6 @@
     <Compile Include="Assets\Scripts\Misc\Health.cs" />
     <Compile Include="Assets\Scripts\Misc\EnemyTypes.cs" />
     <Compile Include="Assets\Scripts\Quest System\Quest Types\DeliveryQuest.cs" />
-    <Compile Include="Assets\Procedural Mesh\Scripts\Misc\InteractaleGizmos.cs" />
     <Compile Include="Assets\Scripts\Core\GameManager.cs" />
     <Compile Include="Assets\Procedural Mesh\Scripts\Mesh Generation\MeshGenerator.cs" />
     <Compile Include="Assets\Scripts\Core\Controls.cs" />

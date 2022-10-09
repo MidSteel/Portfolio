@@ -16,15 +16,10 @@ public class QuestGenerator : MonoBehaviour
     private void Start()
     {
         _questManager = QuestManager.instance;
-
-        //for (int i = 0; i < 5; i++)
-        //{
-        //    Test();
-        //}
     }
 
     [ContextMenu("Add A Random Quest")]
-    public void Test()
+    public void Test()  // For testing purpose.
     {
         GenerateQuest();
     }
@@ -52,8 +47,6 @@ public class QuestGenerator : MonoBehaviour
         KillQuest quest = ScriptableObject.CreateInstance<KillQuest>();
         _randomId = Random.Range(1, _enemyTypeList.EnemyTypeList.Count);
         _randomAmount = Random.Range(1, 5);
-        //_randomId = 2;
-        //_randomAmount = 2;
         quest.SetTarget(_randomId, _randomAmount);
         quest.SetQuestType(1);
         AddQuestToQuestManager(quest);
@@ -64,9 +57,6 @@ public class QuestGenerator : MonoBehaviour
         GatherQuest quest = ScriptableObject.CreateInstance<GatherQuest>();
         _randomAmount = Random.Range(1, 5);
         _randomId = Random.Range(1, _itemTypeList.ItemTypeList.Count + 1);
-        //_randomAmount = Random.Range(1, 20);
-        //_randomId = 3;
-        //_randomAmount = 2;
         quest.SetTarget(_randomId, _randomAmount);
         quest.SetQuestType(2);
         AddQuestToQuestManager(quest);
@@ -76,7 +66,6 @@ public class QuestGenerator : MonoBehaviour
     {
         EscortQuest quest = ScriptableObject.CreateInstance<EscortQuest>();
         _randomId = Random.Range(1, 1000);
-        //_randomAmount = Random.Range(1, 20);
         _randomAmount = 1;
 
         GameObject destinationObject = InstantiateDestination();
@@ -84,7 +73,6 @@ public class QuestGenerator : MonoBehaviour
         destinationReciever.RecieveObjectId = _randomId;
         destinationReciever.AmountToRecieve = _randomAmount;
         destinationReciever._QuestType = quest;
-        //destinationObject.AddComponent<>
 
     }
 
@@ -93,8 +81,6 @@ public class QuestGenerator : MonoBehaviour
         DeliveryQuest quest = ScriptableObject.CreateInstance<DeliveryQuest>();
         _randomId = Random.Range(1, _itemTypeList.ItemTypeList.Count);
         _randomAmount = Random.Range(1, 5);
-        //_randomId = 3;
-        //_randomAmount = 1;
         GameObject destinationObject = InstantiateDestination();
         QuestDestinationReciever destinationReciever = destinationObject.AddComponent<QuestDestinationReciever>();
         destinationReciever.RecieveObjectId = _randomId;
@@ -108,7 +94,6 @@ public class QuestGenerator : MonoBehaviour
     public GameObject InstantiateDestination()
     {
         Vector3 pickAPosFrom = new Vector3(_groundObj.transform.localScale.x * 1.5f, _groundObj.transform.localScale.y, _groundObj.transform.localScale.z * 1.5f);
-        //GameObject destinationObject = Instantiate(new GameObject());
         GameObject destinationObject = new GameObject();
         SphereCollider col = destinationObject.AddComponent<SphereCollider>();
         col.isTrigger = true;
